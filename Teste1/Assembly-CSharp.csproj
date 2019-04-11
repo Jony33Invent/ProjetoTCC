@@ -53,9 +53,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Girar.cs" />
-     <Compile Include="Assets\Mover.cs" />
-     <Compile Include="Assets\PlayerBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyHit.cs" />
+     <Compile Include="Assets\Scripts\FalaEstudant1.cs" />
+     <Compile Include="Assets\Scripts\Girar.cs" />
+     <Compile Include="Assets\Scripts\Heart.cs" />
+     <Compile Include="Assets\Scripts\itemDetector.cs" />
+     <Compile Include="Assets\Scripts\MoveBullet.cs" />
+     <Compile Include="Assets\Scripts\MoveBulletChaveta.cs" />
+     <Compile Include="Assets\Scripts\PlatformaMoverCima.cs" />
+     <Compile Include="Assets\Scripts\PlatformaMoverLado.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PlayerHit.cs" />
+     <Compile Include="Assets\SoundManagement.cs" />
+     <None Include="Assets\Knight Files\Read Me.txt" />
+ <Reference Include="Cinemachine">
+ <HintPath>C:/Users/jonat/Downloads/ProjetoTCC/Teste1/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/jonat/Downloads/ProjetoTCC/Teste1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -65,17 +78,14 @@
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>C:/Users/jonat/Downloads/ProjetoTCC/Teste1/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>C:/Users/jonat/Downloads/ProjetoTCC/Teste1/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/jonat/Downloads/ProjetoTCC/Teste1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
  <HintPath>C:/Users/jonat/Downloads/ProjetoTCC/Teste1/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
- </Reference>
- <Reference Include="Cinemachine">
- <HintPath>C:/Users/jonat/Downloads/ProjetoTCC/Teste1/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.cinemachine.editor">
- <HintPath>C:/Users/jonat/Downloads/ProjetoTCC/Teste1/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
