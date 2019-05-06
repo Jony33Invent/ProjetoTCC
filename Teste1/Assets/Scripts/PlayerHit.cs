@@ -8,6 +8,7 @@ public class PlayerHit : MonoBehaviour
     public PlayerController plScript;
 	public MoveBulletChaveta scrptBullet;
 	public Animator anim;
+    public SoundManage snd;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class PlayerHit : MonoBehaviour
         if(hitInfo.name=="BulletChaveta(Clone)" || hitInfo.name=="BulletStudent(Clone)"){
         	MoveBulletChaveta scrptBullet= hitInfo.GetComponent<MoveBulletChaveta>();
         	plScript.playerHealth-=scrptBullet.damage;
-        	
+        	snd.PlaySound("hit");
             if(hitInfo.transform.rotation.y == -1)
         	{
         		if(plScript.viradoDireita)

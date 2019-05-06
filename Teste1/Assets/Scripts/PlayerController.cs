@@ -45,19 +45,21 @@ public class PlayerController : MonoBehaviour
     public int qtdMoedas=0;
     float radius = 0.35f;
     int results;
-
-
+    public GameObject menu;
+    private SoundManage snd;
 
     //float range = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         playerHealth=initialHealth;
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         trPlayer = GetComponent<Transform>();
+        snd = GetComponent<SoundManage>();
     }
 
     // Update is called once per frame
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
                     trPlayer.position = new Vector2(0f,0f);
                     Debug.Log("Morreu");
                     playerHealth=initialHealth;
+                    snd.PlaySound("death");
                 }
 
         // Para detectar o chão
@@ -78,6 +81,8 @@ public class PlayerController : MonoBehaviour
         	if (Input.GetButtonDown("Jump"))
         	{
             	isJumping = true;
+
+            snd.PlaySound("jump");
        		}
 
 
@@ -109,6 +114,14 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        //Chama o menu ao apertar o botão
+        if(Input.GetButtonDown("Fire3")){
+            if(Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                menu.SetActive(true);
+            } 
+        }
     	//Execução da animação de attack
        	if (TimeNextAttack <= 0)
         {
@@ -116,6 +129,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isAttacking", true);
             TimeNextAttack = 0.5f;
             //PlayerAttack();
+
             }
         }
         else{

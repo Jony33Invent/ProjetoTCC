@@ -16,7 +16,7 @@ public class EnemyHit : MonoBehaviour
     public float qtdDiminui = 0.02f;
     private int qtdTirosLevados=0;
     public Animator anim;
-
+    public SoundManage snd;
     void Start(){
         timer=timeMAX;
         anim = GetComponent<Animator>();
@@ -47,6 +47,7 @@ public class EnemyHit : MonoBehaviour
             anim.SetInteger("anState", qtdTirosLevados);
         	MoveBullet scrptBullet= hitInfo.GetComponent<MoveBullet >();
         	health-=scrptBullet.damage;
+            snd.PlaySound("hit");
             trChaveta.localScale= new Vector3(trChaveta.localScale.x-qtdDiminui, trChaveta.localScale.y-qtdDiminui, trChaveta.localScale.z);
             //Debug.Log("Vida do Chaveta: "+health);
         }
