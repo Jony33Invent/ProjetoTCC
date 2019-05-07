@@ -30,7 +30,7 @@ public class SoundManage : MonoBehaviour
                 audioSrc.PlayOneShot(plHitSound);
             break;
             case "jump":
-                audioSrc.PlayOneShot(plJumpSound);
+                //audioSrc.PlayOneShot(plJumpSound);
             break;
             default:
             break;
