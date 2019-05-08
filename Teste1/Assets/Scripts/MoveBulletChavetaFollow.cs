@@ -13,17 +13,17 @@ public class MoveBulletChavetaFollow : MonoBehaviour
     public Transform playerTr;
     private float initialX;
     private float atualX;
+    private float i = 0f;
     // Start is called before the first frame update
     void Start()
     {
         rb= GetComponent<Rigidbody2D>();
         playerTr = FindObjectOfType<PlayerController>().trPlayer;
+        bulletTr = GetComponent<Transform>();
 
-
-        	rb.velocity = transform.right*speed;
-
-        if(playerTr.position.y > transform.position.y){
-        	if(playerTr.position.x > transform.position.x)
+        //Define uma velocidade vertical e horizontal pro objeto baseado na posição do player
+        if(playerTr.position.y > bulletTr.position.y){
+        	if(playerTr.position.x > bulletTr.position.x)
         	rb.velocity =  new Vector2(speed, speed/2);
         	else
         	rb.velocity =  new Vector2(-speed, speed/2);
@@ -35,16 +35,20 @@ public class MoveBulletChavetaFollow : MonoBehaviour
         	rb.velocity =  new Vector2(-speed, -speed/10);
         }
 
-        bulletTr = GetComponent<Transform>();
         initialX = bulletTr.position.x;
     }
     
     void Update(){
         bulletTr = GetComponent<Transform>();
 
+    	//Girar o objeto
+        bulletTr.rotation = Quaternion.AngleAxis(i, Vector3.back);
+        i+=5;
 
 
         atualX = bulletTr.position.x;
+
+        //Verificar se o objeto está no raio de distancia x maxima e destrui-lo caso nãos esteja
         if(Mathf.Abs(initialX)>Mathf.Abs(atualX)){
             if(Mathf.Abs(initialX) - Mathf.Abs(atualX)>=maxDistance)
             Destroy(gameObject);
@@ -53,11 +57,14 @@ public class MoveBulletChavetaFollow : MonoBehaviour
           if(Mathf.Abs(atualX) - Mathf.Abs(initialX)>=maxDistance)
             Destroy(gameObject);
         }
+
     }
     
     void OnTriggerEnter2D(Collider2D hitInfo){
-        if(hitInfo.transform.tag!="Enemy" && hitInfo.transform.tag!="colTrigger"){
-    	Destroy(gameObject);
+
+    	//Verificar se o objeto atingiu algo que não é o proprio atirador
+        if(hitInfo.transform.tag!="Enemy" && hitInfo.transform.tag!="colTrigger" && hitInfo.transform.tag!="plBullet"){
+    		Destroy(gameObject);
         }   
     }
 }

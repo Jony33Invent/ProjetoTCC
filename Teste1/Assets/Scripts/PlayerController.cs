@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     [Header("Shoot")]
     public Transform trBala;
     public GameObject bala;
-    float TimeNextShoot=0.5f;
+    float TimeNextShoot;
+    public float maxTimeShooting = 0.5f;
 
     [Header("Movement")]
     public Animator anim;
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         Time.timeScale = 1;
         playerHealth=initialHealth;
+        TimeNextShoot=maxTimeShooting;
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -142,12 +144,12 @@ public class PlayerController : MonoBehaviour
         if(TimeNextShoot<=0 && Input.GetButtonDown("Fire2"))
         {
             anim.SetBool("isShooting",true);
-            TimeNextShoot=0.5f;
+            TimeNextShoot=maxTimeShooting;
             //Shoot();
         }
         else {
             TimeNextShoot-=Time.deltaTime;
-            if(TimeNextShoot<=0.4f)
+            if(TimeNextShoot<=maxTimeShooting-0.1f)
             anim.SetBool("isShooting",false);
 
         }

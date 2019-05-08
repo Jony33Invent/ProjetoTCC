@@ -15,6 +15,7 @@ public class EnemyHit : MonoBehaviour
     public bool eleMorre=true;
     public float qtdDiminui = 0.02f;
     private int qtdTirosLevados=0;
+    private int tirosPorTroca = 10;
     public Animator anim;
     public SoundManage snd;
     void Start(){
@@ -28,7 +29,7 @@ public class EnemyHit : MonoBehaviour
         
         if(eleMorre && health<=0)
             Destroy(this.gameObject);       
-        if(qtdTirosLevados<3){
+        if(qtdTirosLevados<tirosPorTroca*3){
             if(timer<=0)
             {
                 timer=timeMAX;
@@ -43,14 +44,21 @@ public class EnemyHit : MonoBehaviour
       void OnTriggerEnter2D(Collider2D hitInfo){
         if(hitInfo.name=="Bullet(Clone)" && health>0){
             qtdTirosLevados++;
-            if(!eleMorre)
-            anim.SetInteger("anState", qtdTirosLevados);
+            if(!eleMorre && (qtdTirosLevados%tirosPorTroca) == 0){
+                anim.SetInteger("anState", qtdTirosLevados/tirosPorTroca);
+                Diminuir();
+            }
+
+            
         	MoveBullet scrptBullet= hitInfo.GetComponent<MoveBullet >();
         	health-=scrptBullet.damage;
             snd.PlaySound("hit");
-            trChaveta.localScale= new Vector3(trChaveta.localScale.x-qtdDiminui, trChaveta.localScale.y-qtdDiminui, trChaveta.localScale.z);
             //Debug.Log("Vida do Chaveta: "+health);
         }
+
+    }
+    private void Diminuir(){
+        trChaveta.localScale= new Vector3(trChaveta.localScale.x-qtdDiminui, trChaveta.localScale.y-qtdDiminui, trChaveta.localScale.z);
 
     }
 
