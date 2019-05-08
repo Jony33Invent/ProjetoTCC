@@ -10,12 +10,19 @@ public class DialogManager : MonoBehaviour
 	public TextMeshProUGUI dialogueText;
 	private Queue<string> falas;
 	public Animator animator;
+    public float timeMAX;
+    private float timer;
     // Start is called before the first frame update
     void Start()
     {
         falas=new Queue<string>();
+        timer = timeMAX;
     }
+    void Update(){
 
+    	//Fala automática
+    	AutomaticDisplayNext();
+    }
     public void StartDialogue(Dialogue dialog){
     	animator.SetBool("isOpen",true);
     	nameText.text=dialog.name;
@@ -28,14 +35,16 @@ public class DialogManager : MonoBehaviour
     }
 
 	public void DisplayNextFala(){
-		if(falas.Count == 0){
-			EndDialogue();
-			return;	
-		}
+		if(falas.Count>0){
+			if(falas.Count == 1){
+				EndDialogue();
+				return;	
+			}
 
 		string fala = falas.Dequeue();
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(fala));
+		}
 	}
 	IEnumerator TypeSentence(string fala){
 		dialogueText.text = "";
@@ -45,8 +54,20 @@ public class DialogManager : MonoBehaviour
 		}
 	}
 	void EndDialogue(){
-		StopAllCoroutines();
-		StartCoroutine(TypeSentence("Falous"));
+			string fala = falas.Dequeue();
+			StopAllCoroutines();
+			StartCoroutine(TypeSentence(fala));
 		animator.SetBool("isOpen",false);
+	}
+
+	void AutomaticDisplayNext(){
+    	 if(timer<=0)
+            {
+                timer=timeMAX;
+                DisplayNextFala();
+            }
+            else {
+                timer-=Time.deltaTime;
+            }
 	}
 }

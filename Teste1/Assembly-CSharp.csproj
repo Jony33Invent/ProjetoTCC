@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\itemDetector.cs" />
      <Compile Include="Assets\Scripts\MoveBullet.cs" />
      <Compile Include="Assets\Scripts\MoveBulletChaveta.cs" />
+     <Compile Include="Assets\Scripts\MoveBulletChavetaFollow.cs" />
      <Compile Include="Assets\Scripts\PlatformaMoverCima.cs" />
      <Compile Include="Assets\Scripts\PlatformaMoverLado.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />

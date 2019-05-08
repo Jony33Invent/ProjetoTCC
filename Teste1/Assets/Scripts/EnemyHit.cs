@@ -51,6 +51,7 @@ public class EnemyHit : MonoBehaviour
             trChaveta.localScale= new Vector3(trChaveta.localScale.x-qtdDiminui, trChaveta.localScale.y-qtdDiminui, trChaveta.localScale.z);
             //Debug.Log("Vida do Chaveta: "+health);
         }
+
     }
 
     private void Shoot(){

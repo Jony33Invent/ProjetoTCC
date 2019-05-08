@@ -37,9 +37,9 @@ public class MoveBullet : MonoBehaviour
     }
     
     void OnTriggerEnter2D(Collider2D hitInfo){
-        if(hitInfo.transform.tag!="Player"){
-        Debug.Log(hitInfo.name);
-    	Destroy(gameObject);
+        if(hitInfo.transform.tag!="Player" && hitInfo.transform.tag!="colTrigger"){
+            Debug.Log(hitInfo.name);
+    	   Destroy(gameObject);
         }
     }
 }

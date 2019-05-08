@@ -37,7 +37,7 @@ public class MoveBulletChaveta : MonoBehaviour
     }
     
     void OnTriggerEnter2D(Collider2D hitInfo){
-        if(hitInfo.transform.tag!="Enemy"){
+        if(hitInfo.transform.tag!="Enemy" && hitInfo.transform.tag!="colTrigger"){
     	Destroy(gameObject);
         }   
     }
