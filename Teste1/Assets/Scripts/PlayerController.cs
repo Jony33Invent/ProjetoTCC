@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     int results;
     public GameObject menu;
     private SoundManage snd;
+    public float TimeNextTeleport;
 
     //float range = 1f;
 

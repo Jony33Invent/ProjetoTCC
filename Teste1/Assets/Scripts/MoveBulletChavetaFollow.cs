@@ -30,9 +30,9 @@ public class MoveBulletChavetaFollow : MonoBehaviour
         }
         else{
         	if(playerTr.position.x > transform.position.x)
-        	rb.velocity =  new Vector2(speed, -speed/10);
+        	rb.velocity =  new Vector2(speed, -speed/20);
         	else
-        	rb.velocity =  new Vector2(-speed, -speed/10);
+        	rb.velocity =  new Vector2(-speed, -speed/20);
         }
 
         initialX = bulletTr.position.x;

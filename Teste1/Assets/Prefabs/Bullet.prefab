@@ -97,7 +97,7 @@ MonoBehaviour:
   speed: 15
   damage: 1
   rb: {fileID: 0}
-  maxDistance: 20
+  maxDistance: 10
   bulletTr: {fileID: 0}
 --- !u!50 &8181519726232308681
 Rigidbody2D:

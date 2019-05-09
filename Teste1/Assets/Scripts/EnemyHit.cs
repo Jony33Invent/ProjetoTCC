@@ -15,7 +15,7 @@ public class EnemyHit : MonoBehaviour
     public bool eleMorre=true;
     public float qtdDiminui = 0.02f;
     private int qtdTirosLevados=0;
-    private int tirosPorTroca = 10;
+    public int tirosPorTroca = 10;
     public Animator anim;
     public SoundManage snd;
     void Start(){
@@ -44,10 +44,11 @@ public class EnemyHit : MonoBehaviour
       void OnTriggerEnter2D(Collider2D hitInfo){
         if(hitInfo.name=="Bullet(Clone)" && health>0){
             qtdTirosLevados++;
-            if(!eleMorre && (qtdTirosLevados%tirosPorTroca) == 0){
+            if((qtdTirosLevados%tirosPorTroca) == 0){
+                if(!eleMorre )
                 anim.SetInteger("anState", qtdTirosLevados/tirosPorTroca);
-                Diminuir();
             }
+            Diminuir();
 
             
         	MoveBullet scrptBullet= hitInfo.GetComponent<MoveBullet >();
