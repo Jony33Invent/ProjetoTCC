@@ -48,28 +48,31 @@ public class PlayerHit : MonoBehaviour
             
     }
         void Dano(Collider2D hitInfo){
-        	snd.PlaySound("hit");
-            if(hitInfo.transform.rotation.y == -1)
-        	{
-        		if(plScript.viradoDireita)
-        		anim.Play("Damage");
-        		else
-        		{
-        			plScript.Flip();
-        			anim.Play("Damage");
+            if(plScript.playerHealth%100 == 0)
+        	  { //snd.PlaySound("hit");
 
-        		}
-        	}
-        	else{
-        		if(!plScript.viradoDireita)
-        		anim.Play("Damage");
-        		else
-        		{
-        			plScript.Flip();
-        			anim.Play("Damage");
+                if(hitInfo.transform.rotation.y == -1)
+            	{
+            		if(plScript.viradoDireita)
+            		anim.Play("Damage");
+            		else
+            		{
+            			plScript.Flip();
+            			anim.Play("Damage");
 
-        		}
-        	}
+            		}
+            	}
+            	else{
+            		if(!plScript.viradoDireita)
+            		anim.Play("Damage");
+            		else
+            		{
+            			plScript.Flip();
+            			anim.Play("Damage");
+
+            		}
+            	}
+            }
             //Debug.Log("Vida do Player: "+plScript.playerHealth);
         }
 }

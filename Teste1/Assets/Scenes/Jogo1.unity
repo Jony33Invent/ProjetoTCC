@@ -944,7 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deBoa: 1
   tempo: 3
-  playerRange: 8
+  playerRange: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 8192
@@ -954,7 +954,8 @@ MonoBehaviour:
   noChao: 0
   enemyLife: 10
   speedDif: 3
-  damage: 10
+  an: {fileID: 107195563}
+  damage: 0
   snd: {fileID: 727720604}
 --- !u!4 &107195562
 Transform:
@@ -6693,7 +6694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1269113719
 Animator:
   serializedVersion: 3
@@ -6788,14 +6789,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  playerRange: 8
+  playerRange: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 8192
   playerInRange: 0
   fancingAway: 0
-  damage: 50
+  damage: 0
   viradoDireita: 1
+  enemyLife: 10
+  snd: {fileID: 727720604}
+  an: {fileID: 1269113719}
+  noChao: 0
+  chaoY: -0.7
 --- !u!61 &1269113723
 BoxCollider2D:
   m_ObjectHideFlags: 0

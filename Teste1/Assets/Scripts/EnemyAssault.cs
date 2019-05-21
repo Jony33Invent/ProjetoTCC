@@ -20,6 +20,7 @@ public class EnemyAssault : MonoBehaviour
     public float enemyLife;
     public float speedDif = 2f;
 
+    public Animator an;
     public float damage=10f;
     public SoundManage snd;
 
@@ -50,17 +51,19 @@ public class EnemyAssault : MonoBehaviour
 
     	if(playerInRange){
 
-    		if(deBoa==true)
-    		SeguirPlayer();
+    		if(deBoa==true){
+				an.SetBool("isFollowingPlayer", true);
+    			SeguirPlayer();
+    		}
 
-
-			if((player.transform.position.x > transform.position.x && !viradoDireita) || (player.transform.position.x < transform.position.x && viradoDireita) )
+			if((player.transform.position.x > transform.position.x && !viradoDireita) || (player.transform.position.x < transform.position.x && viradoDireita) && (player.transform.position.y <= transform.position.y))
 			{
 				
 				flip();
 			}
     	}
     	else if(deBoa == false){
+			an.SetBool("isFollowingPlayer", false);
     		DeixarPlayer();
     	}
 	}

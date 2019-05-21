@@ -27,7 +27,7 @@ public class Heart : MonoBehaviour
     {
 
         Health = player.playerHealth/100f;
-
+        
 
         if (Health > numberOfHeart)
         {
