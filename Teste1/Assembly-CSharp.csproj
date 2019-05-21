@@ -58,6 +58,8 @@
      <Compile Include="Assets\Scripts\DialogManager.cs" />
      <Compile Include="Assets\Scripts\DialogTrigger.cs" />
      <Compile Include="Assets\Scripts\Dialogue.cs" />
+     <Compile Include="Assets\Scripts\EnemyAssault.cs" />
+     <Compile Include="Assets\Scripts\EnemyFly.cs" />
      <Compile Include="Assets\Scripts\EnemyHit.cs" />
      <Compile Include="Assets\Scripts\Girar.cs" />
      <Compile Include="Assets\Scripts\Heart.cs" />

@@ -19,12 +19,35 @@ public class PlayerHit : MonoBehaviour
     void Update()
     {
         
-    }     
+    }
+    void OnTriggerStay2D(Collider2D hitInfo)
+    {
+        if (hitInfo.name == "EnemyFly")
+        {
+            EnemyFly scrpt = hitInfo.GetComponent<EnemyFly>();
+            plScript.playerHealth -= scrpt.damage;
+            Dano(hitInfo);
+        }
+        else if(hitInfo.name == "EnemyAssault")
+         {
+            EnemyAssault scrpt = hitInfo.GetComponent<EnemyAssault>();
+            plScript.playerHealth-=scrpt.damage;
+            Dano(hitInfo);
+         }
 
-     void OnTriggerEnter2D(Collider2D hitInfo){
-        if(hitInfo.name=="BulletChaveta(Clone)" || hitInfo.name=="BulletStudent(Clone)"){
-        	MoveBulletChaveta scrptBullet= hitInfo.GetComponent<MoveBulletChaveta>();
-        	plScript.playerHealth-=scrptBullet.damage;
+    }
+
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        if(hitInfo.name=="BulletChaveta(Clone)" || hitInfo.name=="BulletStudent(Clone)")
+        {
+        	MoveBulletChaveta scrpt= hitInfo.GetComponent<MoveBulletChaveta>();  
+            plScript.playerHealth-=scrpt.damage;
+            Dano(hitInfo);
+        }
+            
+    }
+        void Dano(Collider2D hitInfo){
         	snd.PlaySound("hit");
             if(hitInfo.transform.rotation.y == -1)
         	{
@@ -49,5 +72,10 @@ public class PlayerHit : MonoBehaviour
         	}
             //Debug.Log("Vida do Player: "+plScript.playerHealth);
         }
-    }
 }
+
+
+
+
+
+

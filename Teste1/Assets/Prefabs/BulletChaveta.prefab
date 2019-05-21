@@ -29,6 +29,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletChaveta
       objectReference: {fileID: 0}
+    - target: {fileID: 1224703051990345147, guid: d641ef46fd07c1b429e1b69d920f5848,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 942728199396488859, guid: d641ef46fd07c1b429e1b69d920f5848,
         type: 3}
       propertyPath: m_LocalPosition.x
