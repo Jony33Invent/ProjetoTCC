@@ -57,7 +57,7 @@ public class DialogManager : MonoBehaviour
 			string fala = falas.Dequeue();
 			StopAllCoroutines();
 			StartCoroutine(TypeSentence(fala));
-		animator.SetBool("isOpen",false);
+			animator.SetBool("isOpen",false);
 	}
 
 	void AutomaticDisplayNext(){
