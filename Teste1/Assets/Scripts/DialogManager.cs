@@ -29,7 +29,7 @@ public class DialogManager : MonoBehaviour
    		falas.Clear();
 	   	foreach(string fala in dialog.falas){
 	   		falas.Enqueue(fala);
-	   	}
+	   	}animator.SetBool("isOpen",true);
    		DisplayNextFala();
 
     }

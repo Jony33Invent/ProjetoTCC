@@ -12,6 +12,11 @@ public class doorScript : MonoBehaviour
     public float maxTimeTeleport = 5f;
 	float move;
 	public Transform playerTransform;
+    public PlayerController plscript;
+	public Dialogue dialog;
+	public void TriggerDialogue(){
+		FindObjectOfType<DialogManager>().StartDialogue(dialog);
+	}
     // Start is called before the first frame update
     void Start()
     {
@@ -23,27 +28,35 @@ public class doorScript : MonoBehaviour
     {
 
     	move = Input.GetAxis("Vertical");
-        if(plScript.TimeNextTeleport<=0 && move > 0 && anDoor.GetBool("isOpen")==true){
+        if(plScript.TimeNextTeleport<=0 && move > 0 && anDoor.GetBool("isOpen")==true && plscript.enemyAlive<=0){
         	
         	plScript.TimeNextTeleport=maxTimeTeleport;
         	TeleportarPlayer(newX, newY);
         }
-        else
+        else{
         	plScript.TimeNextTeleport-=Time.deltaTime;
-      
+
+        }
+
     }
 
-      void OnTriggerEnter2D(Collider2D hitInfo){
+	void OnTriggerStay2D(Collider2D hitInfo){
+			if(hitInfo.name=="Player" && plscript.enemyAlive>0 && move>0)
+				TriggerDialogue();
+		}
+
+    void OnTriggerEnter2D(Collider2D hitInfo){
 
     	//Verificar se o player esta no raio de colisão
-        if(hitInfo.name=="Player"){
+        if(hitInfo.name=="Player" && plscript.enemyAlive<=0){
             anDoor.SetBool("isOpen",true);
+
         }   
     }
-      void OnTriggerExit2D(Collider2D hitInfo){
+    void OnTriggerExit2D(Collider2D hitInfo){
 
     	//Verificar se o player esta no raio de colisão
-        if(hitInfo.name=="Player"){
+        if(hitInfo.name=="Player" && plscript.enemyAlive<=0){
             anDoor.SetBool("isOpen",false);
         }   
     }
@@ -52,4 +65,5 @@ public class doorScript : MonoBehaviour
     	//Aqui vai a bagaça
     	playerTransform.localPosition = new Vector3(x, y, 0);
     }
+
 }

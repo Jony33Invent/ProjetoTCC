@@ -18,34 +18,54 @@ public class EnemyHit : MonoBehaviour
     public int tirosPorTroca = 10;
     public Animator anim;
     public SoundManage snd;
+    public PlayerController plscript;
+    private bool mudou;
     void Start(){
         timer=timeMAX;
         anim = GetComponent<Animator>();
+        mudou=false;
     }
     void Update()
     {
         if((trPlayer.position.x>trChaveta.position.x && !viradoDireita) || (trPlayer.position.x<trChaveta.position.x && viradoDireita))
             Flip();
         
-        if(eleMorre && health<=0)
-            Destroy(this.gameObject);       
-        if(qtdTirosLevados<tirosPorTroca*3){
-            if(timer<=0)
-            {
-                timer=timeMAX;
-                Shoot();
+        if(eleMorre){
+            if(health<=0)
+            Destroy(this.gameObject); 
+              if(timer<=0)
+                    {
+                        timer=timeMAX;
+                        Shoot();
+                    }
+                    else {
+                        timer-=Time.deltaTime;
+                    }
             }
-            else {
-                timer-=Time.deltaTime;
+            else{      
+                if(qtdTirosLevados<tirosPorTroca*3){
+                    if(timer<=0)
+                    {
+                        timer=timeMAX;
+                        Shoot();
+                    }
+                    else {
+                        timer-=Time.deltaTime;
+                    }
+                }
+                else{
+                    if(!mudou)
+                        plscript.enemyAlive--;
+
+                    mudou=true;
+                }
             }
-        }
-            
     }
       void OnTriggerEnter2D(Collider2D hitInfo){
         if(hitInfo.name=="Bullet(Clone)" && health>0){
             qtdTirosLevados++;
             if((qtdTirosLevados%tirosPorTroca) == 0){
-                if(!eleMorre )
+                if(!eleMorre)
                 anim.SetInteger("anState", qtdTirosLevados/tirosPorTroca);
             }
             Diminuir();

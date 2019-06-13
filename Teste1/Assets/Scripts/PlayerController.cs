@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     public GameObject menu;
     private SoundManage snd;
     public float TimeNextTeleport;
+    public int enemyAlive = 4;
 
     //float range = 1f;
 
