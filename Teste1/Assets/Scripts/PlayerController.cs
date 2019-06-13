@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(playerHealth<=0){
-                    trPlayer.position = new Vector2(0f,0f);
+                    trPlayer.position = new Vector2(-40f,0f);
                     Debug.Log("Morreu");
                     playerHealth=initialHealth;
                     snd.PlaySound("death");
