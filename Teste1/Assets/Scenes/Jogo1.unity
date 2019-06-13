@@ -649,7 +649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &107195558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -688,7 +688,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1
+  m_Mass: 0.518484
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3993,6 +3993,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4168467936486187849, guid: 55b6a248788f36c45b0ed2f5fb838820,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168467936486187849, guid: 55b6a248788f36c45b0ed2f5fb838820,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4168467937548583308, guid: 55b6a248788f36c45b0ed2f5fb838820,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4106,7 +4116,7 @@ PrefabInstance:
     - target: {fileID: 4168467937542666267, guid: 55b6a248788f36c45b0ed2f5fb838820,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4168467937542666271, guid: 55b6a248788f36c45b0ed2f5fb838820,
         type: 3}
@@ -4124,16 +4134,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4168467936254206472, guid: 55b6a248788f36c45b0ed2f5fb838820,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4168467936486187849, guid: 55b6a248788f36c45b0ed2f5fb838820,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4168467936486187849, guid: 55b6a248788f36c45b0ed2f5fb838820,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -5054,7 +5054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1269113719
 Animator:
   serializedVersion: 3
@@ -5540,7 +5540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5324fa01ac50c8448cf06d13b3f8331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 12
   timeMAX: 3
   trPlayer: {fileID: 727720599}
   trChaveta: {fileID: 1365535432}
@@ -5548,8 +5548,8 @@ MonoBehaviour:
   bala: {fileID: 6429003356005613496, guid: ce6be340d8ba8d84da8178ce2d4e45a2, type: 3}
   viradoDireita: 1
   eleMorre: 0
-  qtdDiminui: 0.015
-  tirosPorTroca: 10
+  qtdDiminui: 0.035
+  tirosPorTroca: 4
   anim: {fileID: 1365535433}
   snd: {fileID: 727720604}
 --- !u!61 &1365535429
