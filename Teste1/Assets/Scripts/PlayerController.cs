@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Shoot")]
     public Transform trBala;
+    private Vector3 trBalaPos;
     public GameObject bala;
     float TimeNextShoot;
     public float maxTimeShooting = 0.5f;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    	trBalaPos = new Vector3(0.91f, 0.1f, 0f);
         Time.timeScale = 1;
         playerHealth=initialHealth;
         TimeNextShoot=maxTimeShooting;
@@ -179,7 +181,11 @@ public class PlayerController : MonoBehaviour
 
     //Função do tiro
     private void Shoot(){
+    	if(Input.GetAxis("Vertical")>0){
+    		trBala.localPosition = new Vector3(0f, 1.2f, 0f);
+    	}
         Instantiate(bala, trBala.position, trBala.rotation);
+        trBala.localPosition = trBalaPos;
     }
 
     //Função de virada do personagem
