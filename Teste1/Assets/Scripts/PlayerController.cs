@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     //Variáveis  
@@ -12,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public Transform trPlayer;
     public float playerHealth;
     public float initialHealth;
-
+    public int playerLifes;
 
 
 
@@ -51,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private SoundManage snd;
     public float TimeNextTeleport;
     public int enemyAlive = 4;
-
+    public TextMeshProUGUI lifeText;
     //float range = 1f;
 
     // Start is called before the first frame update
@@ -66,6 +69,8 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         trPlayer = GetComponent<Transform>();
         snd = GetComponent<SoundManage>();
+
+        lifeText.text = ""+ playerLifes;
     }
 
     // Update is called once per frame
@@ -75,6 +80,11 @@ public class PlayerController : MonoBehaviour
                     trPlayer.position = new Vector2(-40f,0f);
                     Debug.Log("Morreu");
                     playerHealth=initialHealth;
+                    playerLifes--;
+                    if(playerLifes>=0)
+                    	lifeText.text = ""+ playerLifes;
+                    else
+                    	GameOver();
                     snd.PlaySound("death");
                 }
 
@@ -144,6 +154,15 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isAttacking", false);
         }
 
+        
+		if(Input.GetAxis("Vertical")>0){
+			anim.SetBool("isLookingUp",true);
+		}
+		else{
+			anim.SetBool("isLookingUp",false);
+		}
+
+
         //Execução da animação de tiro
         if(TimeNextShoot<=0 && Input.GetButtonDown("Fire2"))
         {
@@ -155,7 +174,6 @@ public class PlayerController : MonoBehaviour
             TimeNextShoot-=Time.deltaTime;
             if(TimeNextShoot<=maxTimeShooting-0.1f)
             anim.SetBool("isShooting",false);
-
         }
             
         SetAnimation();
@@ -221,6 +239,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void GameOver(){
+ 		SceneManager.LoadScene(2);
+    }
 
     //Função para desenhar um circulo em volta do objeto GroundCheck (só pra ajudar na visualização)
     private void OnDrawGizmosSelected()

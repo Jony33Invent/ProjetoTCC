@@ -20,9 +20,12 @@ public class MoveBullet : MonoBehaviour
         //acrescenta uma velocidade à bala, ocasionando movimento
         rb= GetComponent<Rigidbody2D>();
         
-        rb.velocity = transform.right*speed;
+        if(Input.GetAxis("Vertical")>0)
+            rb.velocity = transform.up*speed;
+        else
+            rb.velocity = transform.right*speed;
         
-        //rb.velocity = transform.up*speed;
+
         
 
         //adiciona a posição x da bala à variável

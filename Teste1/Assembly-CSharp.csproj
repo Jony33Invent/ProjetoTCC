@@ -53,16 +53,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\doorScript.cs" />
-     <Compile Include="Assets\inimigo.cs" />
      <Compile Include="Assets\Scripts\DialogManager.cs" />
      <Compile Include="Assets\Scripts\DialogTrigger.cs" />
      <Compile Include="Assets\Scripts\Dialogue.cs" />
+     <Compile Include="Assets\Scripts\doorScript.cs" />
      <Compile Include="Assets\Scripts\EnemyAssault.cs" />
      <Compile Include="Assets\Scripts\EnemyFly.cs" />
      <Compile Include="Assets\Scripts\EnemyHit.cs" />
      <Compile Include="Assets\Scripts\Girar.cs" />
      <Compile Include="Assets\Scripts\Heart.cs" />
+     <Compile Include="Assets\Scripts\inimigo.cs" />
      <Compile Include="Assets\Scripts\itemDetector.cs" />
      <Compile Include="Assets\Scripts\mainMenuScript.cs" />
      <Compile Include="Assets\Scripts\MoveBullet.cs" />
@@ -75,7 +75,6 @@
      <Compile Include="Assets\Scripts\SoundManage.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\Knight Files\Read Me.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
