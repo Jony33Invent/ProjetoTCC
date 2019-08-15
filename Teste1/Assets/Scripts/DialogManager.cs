@@ -12,10 +12,12 @@ public class DialogManager : MonoBehaviour
 	public Animator animator;
     public float timeMAX;
     private float timer;
+    public bool BossAtaca;
     // Start is called before the first frame update
     void Start()
     {
-        falas=new Queue<string>();
+    	BossAtaca = false;
+        falas = new Queue<string>();
         timer = timeMAX;
     }
     void Update(){
@@ -58,6 +60,10 @@ public class DialogManager : MonoBehaviour
 			StopAllCoroutines();
 			StartCoroutine(TypeSentence(fala));
 			animator.SetBool("isOpen",false);
+
+		if(nameText.text=="Professor Olavo"){
+			BossAtaca = true;
+		}
 	}
 
 	void AutomaticDisplayNext(){

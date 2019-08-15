@@ -12,6 +12,7 @@ public class doorScript : MonoBehaviour
     public float maxTimeTeleport = 5f;
 	float move;
 	public Transform playerTransform;
+	public Transform parede;
     public PlayerController plscript;
 	public Dialogue dialog;
 	public void TriggerDialogue(){
@@ -64,6 +65,8 @@ public class doorScript : MonoBehaviour
     void TeleportarPlayer(float x, float y){
     	//Aqui vai a bagaça
     	playerTransform.localPosition = new Vector3(x, y, 0);
+    	if(x!=32f)
+    		parede.localPosition = new Vector3(parede.position.x, -9f, parede.position.z);
     }
 
 }

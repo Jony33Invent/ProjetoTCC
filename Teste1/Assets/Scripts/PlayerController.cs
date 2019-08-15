@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     float move;
     public Transform GroundCheck;
     public LayerMask whatIsGround;
+    public Vector2 checkPoint;
     //public LayerMask whatIsWall;
 
     [Header("Others")]
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        checkPoint = new Vector2(-40f,0f);
     	trBalaPos = new Vector3(0.91f, 0.1f, 0f);
         Time.timeScale = 1;
         playerHealth=initialHealth;
@@ -77,8 +79,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(playerHealth<=0){
-                    trPlayer.position = new Vector2(-40f,0f);
-                    Debug.Log("Morreu");
+                    trPlayer.position = checkPoint;
+                    //Debug.Log("Morreu");
                     playerHealth=initialHealth;
                     playerLifes--;
                     if(playerLifes>=0)

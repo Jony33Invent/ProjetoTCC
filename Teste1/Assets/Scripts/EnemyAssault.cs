@@ -86,7 +86,7 @@ public class EnemyAssault : MonoBehaviour
 			{
 				enemyBody.AddForce(new Vector2(0f, JumpForce));
 
-				//Debug.Log("PULOU NO MEU PENIS");
+				//Debug.Log("PULOU");
 			}	
 			noChao = false;
 	}

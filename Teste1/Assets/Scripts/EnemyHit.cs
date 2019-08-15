@@ -20,11 +20,13 @@ public class EnemyHit : MonoBehaviour
     public SoundManage snd;
     public PlayerController plscript;
     private bool mudou;
+
     void Start(){
         timer=timeMAX;
         anim = GetComponent<Animator>();
         mudou=false;
     }
+    
     void Update()
     {
         if((trPlayer.position.x>trChaveta.position.x && !viradoDireita) || (trPlayer.position.x<trChaveta.position.x && viradoDireita))

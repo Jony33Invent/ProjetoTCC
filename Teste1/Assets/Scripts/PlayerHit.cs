@@ -34,6 +34,15 @@ public class PlayerHit : MonoBehaviour
             plScript.playerHealth-=scrpt.damage;
             Dano(hitInfo);
          }
+         else if(hitInfo.name == "Boss"){
+            BosScript scrpt = hitInfo.GetComponent<BosScript>();
+            plScript.playerHealth-=scrpt.damage;
+            Dano(hitInfo);
+         }
+         else if(hitInfo.name == "fogo1"){
+            plScript.playerHealth-=7f;
+            Dano(hitInfo);
+         }
 
     }
 
