@@ -22,7 +22,8 @@ public class BosScript : MonoBehaviour
     public float moveSpeed;
     public float damage;
     public Animator an;
-
+    public Dialogue question_dialog;
+    public GameObject canvasPergunta;
     
     // Start is called before the first frame update
     void Start()
@@ -66,9 +67,12 @@ public class BosScript : MonoBehaviour
                             case 3:
                                 an.Play("Atac3Animation");
 					   		break;
+                            case 4:
+                                TrigDialog();
+                            break;
 					   	}
                         atac++;
-                    if(atac>4)
+                    if(atac>5)
                         atac=0;
                     }
                     else {
@@ -133,7 +137,14 @@ public class BosScript : MonoBehaviour
 
     	Debug.Log("BOSS DA DANO EM AREA");
     }
-
+    void TrigDialog(){
+        FindObjectOfType<DialogManager>().StartDialogue(question_dialog);
+            if(Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                canvasPergunta.SetActive(true);
+            } 
+    }
     private void Flip(){
         viradoDireita = !viradoDireita;
         trBoss.Rotate(0f,180f,0f);
