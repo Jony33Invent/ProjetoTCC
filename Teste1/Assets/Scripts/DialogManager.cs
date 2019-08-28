@@ -13,6 +13,7 @@ public class DialogManager : MonoBehaviour
     public float timeMAX;
     private float timer;
     public bool BossAtaca;
+    public GameObject canvasPergunta;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +27,16 @@ public class DialogManager : MonoBehaviour
     	AutomaticDisplayNext();
     }
     public void StartDialogue(Dialogue dialog){
-    	animator.SetBool("isOpen",true);
+		if(nameText.text=="Professor Olavo"){
+			BossAtaca = false;
+		}
+    	//animator.SetBool("isOpen",true);
     	nameText.text=dialog.name;
    		falas.Clear();
 	   	foreach(string fala in dialog.falas){
 	   		falas.Enqueue(fala);
-	   	}animator.SetBool("isOpen",true);
+	   	}
+	   	animator.SetBool("isOpen",true);
    		DisplayNextFala();
 
     }
@@ -63,6 +68,12 @@ public class DialogManager : MonoBehaviour
 
 		if(nameText.text=="Professor Olavo"){
 			BossAtaca = true;
+		}else if(nameText.text=="Professor Olavo Pistola"){
+			if(Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                canvasPergunta.SetActive(true);
+            } 
 		}
 	}
 

@@ -23,8 +23,7 @@ public class BosScript : MonoBehaviour
     public float damage;
     public Animator an;
     public Dialogue question_dialog;
-    public GameObject canvasPergunta;
-    
+    public float BossLife;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +36,7 @@ public class BosScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+               
         if((trPlayer.position.x>trBoss.position.x && !viradoDireita) || (trPlayer.position.x<trBoss.position.x && viradoDireita))
             Flip();
 
@@ -56,6 +56,7 @@ public class BosScript : MonoBehaviour
 					   	//atac=Random.Range(0, 3);
 					   	switch(atac){
 					   		case 0:
+                            case 2:
 
                             atirar=true;
                                 //an.Play("Atac1Animation");
@@ -63,7 +64,6 @@ public class BosScript : MonoBehaviour
 					   		case 1:
                                 an.Play("Atac2Animation");
 					   		break;
-					   		case 2:
                             case 3:
                                 an.Play("Atac3Animation");
 					   		break;
@@ -85,7 +85,8 @@ public class BosScript : MonoBehaviour
                             else
                             timerBala-=Time.deltaTime;
                         }
-                    }     
+                    }    
+
      	}
      	if(seguirPlayer){
      		transform.position = Vector3.MoveTowards(trBoss.position, new Vector3(trPlayer.position.x, trBoss.position.y, trBoss.position.z), moveSpeed * Time.deltaTime);
@@ -101,14 +102,12 @@ public class BosScript : MonoBehaviour
 
     void Ataque1(){
         Instantiate(bala, trBala.position, trBala.rotation);
-    	Debug.Log("BOSS ATIRA");
     }
 
     void Ataque2(){
     			fogo2.SetActive(true);
     			fogo3.SetActive(true);
     	seguirPlayer=true;
-    	Debug.Log("BOSS SEGUE O PLAIER");
     }
 
     void Ataque3(){
@@ -135,15 +134,22 @@ public class BosScript : MonoBehaviour
     //    }
 
 
-    	Debug.Log("BOSS DA DANO EM AREA");
     }
     void TrigDialog(){
         FindObjectOfType<DialogManager>().StartDialogue(question_dialog);
-            if(Time.timeScale == 1)
-            {
-                Time.timeScale = 0;
-                canvasPergunta.SetActive(true);
-            } 
+       
+    }
+
+     void OnTriggerEnter2D(Collider2D hitInfo){
+        if(BossLife>0){
+            if(hitInfo.name=="Bullet(Clone)"){      
+                MoveBullet scrptBullet= hitInfo.GetComponent<MoveBullet >();
+                BossLife-=scrptBullet.damage;
+                Debug.Log("Vida do Chefe: "+BossLife);
+            }
+        }else{
+            Destroy(this.gameObject); 
+        }
     }
     private void Flip(){
         viradoDireita = !viradoDireita;

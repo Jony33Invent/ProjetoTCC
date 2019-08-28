@@ -190,7 +190,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5179342}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 68217841}
+        m_MethodName: altBtnClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &5179342
@@ -714,7 +725,7 @@ MonoBehaviour:
     - 600
     - 3600
     - 6000
-  - pergunta: "O que Lu\xEDs de Cam\xF5es\r era?"
+  - pergunta: "O que Lu\xEDs de Cam\xF5es era?"
     resposta: Escritor
     alternativas:
     - Pintor
@@ -735,11 +746,95 @@ MonoBehaviour:
     - Rio Nilo
     - Rio Tigre
     - Rio Eufrates
+  - pergunta: "Qual o antibi\xF3tico desenvolvido a partir de fungos?"
+    resposta: Penicilina
+    alternativas:
+    - Penicilina
+    - "Amino\xE1cido"
+    - Carbapenema
+    - "Code\xEDna"
+  - pergunta: "O que pesa mais, um 1 kg de chumbo ou um 1 Kg de pena?\r"
+    resposta: Os dois tem o mesmo peso
+    alternativas:
+    - Os dois tem o mesmo peso
+    - 1kg de chumbo
+    - 1kg de pena
+    - Nenhum dos dois
+  - pergunta: "Do que \xE9 composto o Sol?"
+    resposta: "Hidrog\xEAnio e h\xE9lio"
+    alternativas:
+    - Metano e enxofe
+    - "Hidrog\xEAnio e h\xE9lio"
+    - "Hidrog\xEAnio e oxig\xEAnio"
+    - Carbono e enxofre
+  - pergunta: "Qual dos pa\xEDses faz parte da Pen\xEDnsula Ib\xE9rica\r?"
+    resposta: Espanha
+    alternativas:
+    - "Jap\xE3o"
+    - "Pol\xF4nia"
+    - Africa do Sul
+    - Espanha
+  - pergunta: "Em qual gal\xE1xia se localiza o planeta Terra\r?"
+    resposta: "Via L\xE1ctea"
+    alternativas:
+    - Andromeda
+    - "Gal\xE1xia do Sombreiro"
+    - "Via L\xE1ctea"
+    - Sistema Solar
+  - pergunta: "Qual o \xFAnico mam\xEDfero que bota ovo?"
+    resposta: Ornitorrinco
+    alternativas:
+    - Tartaruga
+    - Pinguim
+    - Golfinho
+    - Ornitorrinco
+  - pergunta: "Em que continente se localiza a Dinamarca?\r\n"
+    resposta: Europa
+    alternativas:
+    - Europa
+    - "\xC1sia"
+    - America
+    - Oceania
+  - pergunta: "Quanto cent\xEDmetros tem em 1 metro?"
+    resposta: 100
+    alternativas:
+    - 1
+    - 10
+    - 100
+    - 1000
+  - pergunta: Qual o maior osso do corpo humano?
+    resposta: "F\xEAmur"
+    alternativas:
+    - "T\xEDbia"
+    - "F\xEAmur"
+    - "Per\xF4nio"
+    - "Cr\xE2nio"
+  - pergunta: Quem pintou o quadro "A noite estrelada"?
+    resposta: Vincent van Gogh
+    alternativas:
+    - Leonardo da Vinci
+    - Tarsila do Amaral
+    - Pablo Picasso
+    - Vincent van Gogh
   pergunText: {fileID: 69246136}
   alternText1: {fileID: 355253865}
   alternText2: {fileID: 407061982}
   alternText3: {fileID: 300960885}
   alternText4: {fileID: 643399920}
+  canvasPergunta: {fileID: 214262224}
+  dialog_erro:
+    name: Professor Olavo
+    falas:
+    - HAHAHAAH
+    - "voc\xEA errou"
+    - errou errou errou
+  dialog_acert:
+    name: Professor Olavo
+    falas:
+    - "N\xE3o \xE9 POSS\xCDVEL"
+    - "VOC\xCA DEVE TER COLADO"
+    - AAAAAAAA
+  boss: {fileID: 943624823}
 --- !u!1 &69246134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &214262225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2359,7 +2454,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 288989725}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 68217841}
+        m_MethodName: altBtnClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &288989725
@@ -6179,7 +6285,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 764514455}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 68217841}
+        m_MethodName: altBtnClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &764514455
@@ -6690,6 +6807,7 @@ MonoBehaviour:
   animator: {fileID: 1918263254}
   timeMAX: 2
   BossAtaca: 0
+  canvasPergunta: {fileID: 214262224}
 --- !u!4 &840675740
 Transform:
   m_ObjectHideFlags: 0
@@ -7329,12 +7447,12 @@ MonoBehaviour:
   damage: 5
   an: {fileID: 943624824}
   question_dialog:
-    name: Professor Olavo
+    name: Professor Olavo Pistola
     falas:
     - "Voc\xEA se acha bom."
     - Quero ver responder essa PERGUNTA...
-    - HEHEHE
-  canvasPergunta: {fileID: 214262224}
+    - "HEHEHE n\xE3o vai acertar nunca."
+  BossLife: 800
 --- !u!58 &943624829
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8202,7 +8320,7 @@ GameObject:
   - component: {fileID: 1087065274}
   - component: {fileID: 1087065276}
   - component: {fileID: 1087065275}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: doorTrigger
   m_TagString: colTrigger
   m_Icon: {fileID: 0}
@@ -9205,7 +9323,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 210e2d1d60d83704ea3089db780d571c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9453,7 +9571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197160222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 79.05, y: 0.17, z: 0.78}
+  m_LocalPosition: {x: 79.05, y: 0.54, z: 0.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1327413525}
@@ -9920,7 +10038,7 @@ GameObject:
   - component: {fileID: 1327413525}
   - component: {fileID: 1327413526}
   - component: {fileID: 1327413527}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: doorTrigger
   m_TagString: colTrigger
   m_Icon: {fileID: 0}
@@ -13212,7 +13330,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1855559596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 68217841}
+        m_MethodName: altBtnClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1855559596
@@ -14287,8 +14416,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997756114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 111.02, y: 0.4107974, z: 0}
-  m_LocalScale: {x: 0.70819, y: 0.70819, z: 0.70819}
+  m_LocalPosition: {x: 110.56, y: 0.4107974, z: 0}
+  m_LocalScale: {x: 0.45147112, y: 0.70819, z: 0.70819}
   m_Children:
   - {fileID: 1213893841}
   m_Father: {fileID: 0}
@@ -14367,7 +14496,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 210e2d1d60d83704ea3089db780d571c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
