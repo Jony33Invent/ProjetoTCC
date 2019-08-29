@@ -13,6 +13,9 @@ public class PerguntaScript : MonoBehaviour
     public GameObject canvasPergunta;
     public Dialogue dialog_erro, dialog_acert;
     public GameObject boss;
+    public float danoDaPergunta;
+    public RectTransform rt;
+    public float left;
 	int rnd;
     // Start is called before the first frame update
     void OnEnable()
@@ -38,7 +41,9 @@ public class PerguntaScript : MonoBehaviour
     		Debug.Log("ACERTOU");
         	FindObjectOfType<DialogManager>().StartDialogue(dialog_acert);
         	BosScript scrpt= boss.GetComponent<BosScript>();
-        	scrpt.BossLife-=200f;
+        	scrpt.BossLife-=danoDaPergunta;
+            left = -566.2f/scrpt.BossMaxLife*scrpt.BossLife+498.1f;
+            rt.offsetMin = new Vector2(left, rt.offsetMin.y); 
     	}
     	else{
     		Debug.Log("ERROU");

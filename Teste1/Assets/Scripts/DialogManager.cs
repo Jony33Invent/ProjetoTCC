@@ -14,6 +14,7 @@ public class DialogManager : MonoBehaviour
     private float timer;
     public bool BossAtaca;
     public GameObject canvasPergunta;
+    public GameObject boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class DialogManager : MonoBehaviour
     	AutomaticDisplayNext();
     }
     public void StartDialogue(Dialogue dialog){
-		if(nameText.text=="Professor Olavo"){
+		if(nameText.text=="Professor Olavo" || nameText.text=="Professor Olavo Meio Triste"){
 			BossAtaca = false;
 		}
     	//animator.SetBool("isOpen",true);
@@ -74,7 +75,9 @@ public class DialogManager : MonoBehaviour
                 Time.timeScale = 0;
                 canvasPergunta.SetActive(true);
             } 
-		}
+		}else if(nameText.text=="Professor Olavo Meio Triste"){
+			  Destroy(boss);		
+			}
 	}
 
 	void AutomaticDisplayNext(){

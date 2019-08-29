@@ -23,7 +23,11 @@ public class BosScript : MonoBehaviour
     public float damage;
     public Animator an;
     public Dialogue question_dialog;
+    public Dialogue victory_dialog;
     public float BossLife;
+    public float BossMaxLife;
+    public RectTransform rt;
+    public float left;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +35,7 @@ public class BosScript : MonoBehaviour
         timer = 0.5f;
         atac = 0;
         atirar=false;
+        BossLife=BossMaxLife;
     }
 
     // Update is called once per frame
@@ -86,8 +91,9 @@ public class BosScript : MonoBehaviour
                             timerBala-=Time.deltaTime;
                         }
                     }    
-
+            boleanointerno = dialog.BossAtaca;
      	}
+
      	if(seguirPlayer){
      		transform.position = Vector3.MoveTowards(trBoss.position, new Vector3(trPlayer.position.x, trBoss.position.y, trBoss.position.z), moveSpeed * Time.deltaTime);
      	}
@@ -141,14 +147,17 @@ public class BosScript : MonoBehaviour
     }
 
      void OnTriggerEnter2D(Collider2D hitInfo){
-        if(BossLife>0){
-            if(hitInfo.name=="Bullet(Clone)"){      
-                MoveBullet scrptBullet= hitInfo.GetComponent<MoveBullet >();
-                BossLife-=scrptBullet.damage;
-                Debug.Log("Vida do Chefe: "+BossLife);
+        if(boleanointerno){
+            if(BossLife>0){
+                if(hitInfo.name=="Bullet(Clone)"){      
+                    MoveBullet scrptBullet= hitInfo.GetComponent<MoveBullet >();
+                    BossLife-=scrptBullet.damage;
+                    left = -566.2f/BossMaxLife*BossLife+498.1f;
+                    rt.offsetMin = new Vector2(left, rt.offsetMin.y); 
+                }
+            }else{
+                FindObjectOfType<DialogManager>().StartDialogue(victory_dialog);
             }
-        }else{
-            Destroy(this.gameObject); 
         }
     }
     private void Flip(){
