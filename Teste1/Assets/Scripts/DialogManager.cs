@@ -15,6 +15,7 @@ public class DialogManager : MonoBehaviour
     public bool BossAtaca;
     public GameObject canvasPergunta;
     public GameObject boss;
+    public GameObject healthbar;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +70,7 @@ public class DialogManager : MonoBehaviour
 
 		if(nameText.text=="Professor Olavo"){
 			BossAtaca = true;
+    		healthbar.SetActive(true);
 		}else if(nameText.text=="Professor Olavo Pistola"){
 			if(Time.timeScale == 1)
             {
@@ -77,6 +79,7 @@ public class DialogManager : MonoBehaviour
             } 
 		}else if(nameText.text=="Professor Olavo Meio Triste"){
 			  Destroy(boss);		
+    		healthbar.SetActive(false);
 			}
 	}
 
